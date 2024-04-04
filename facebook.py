@@ -12,9 +12,9 @@ import random
 email = str bartosz szymański
 
 
-passwordlist = str(raw_input("Enter the wordlist name and path : "))
+passwordlist = str.
 
-
+513106876
 login = 'https://https://www.facebook.com/profile.php?id=61554323602475
 
 
